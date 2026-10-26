@@ -1,37 +1,21 @@
-# scroll-art
+***NOTE ALL MY ASCII ART WAS THOUGHT OF IN MY BRAIN AND MY OWN ORIGINAL WORK**
 
-## 1. Triangle Hall
+## 1: 
+I made my fish ascii art with the graphing paper Ms. Feng provided us. At first I drew a fish out, and then I redrew it to fit into the grid using specific characters. 
 
-`ScrollArtV1Pattern.java` is a program that prints straight lines moving either left or right. 
-Then a new line, at random intervals, branches off an existing line in the opposite direction. 
-It creates a pattern that looks like a bunch of triangles. I was inspired by watching Al Sweigart's Scroll Art video [here](https://www.youtube.com/watch?v=Sjk4UMpJqVs&embeds_referring_euri=https%3A%2F%2Fscrollart.org%2F&source_ve_path=MzY4NDIsMjM4NTE). 
+My graph paper sketch can be seen in fish-drawing.jpeg
 
-(Citation Points: kind of 1, kind of 3 from Al Sweigart, so **2**)
+This is what the fish looks like: 
+
+Citation points: 1
 
 
-## 2. Text-moji Art 
+## 2: 
+After struggling to make a penguin ascii, I decided to make a turtle instead, so first, I sketched the turtle out on graph paper. Then, I redrew it on the graph paper so that it fit into the grid using specific characters.
 
-My text-moji art is in `ScrollArtV1.java`.
-I was inspired by the bunny textmoji from a Google search of "bunny ascii emoticon" (credit: belongs to the internet it seems like): 
-![](https://ih1.redbubble.net/image.2920171915.3297/raf,360x360,075,t,fafafa:ca443f4786.jpg)
+My graph paper sketch can be seen in turtle-drawing.jpeg
 
-It was only 8x3 so I added a rocket detailing to it. 
-(Citation Points: kind of 1, kind of 3, so **2**)
+This is what my turtle looks like:
 
-I decided to make a 8x6 carrot after I made this bunny rocket. Here is the carrot: 
-```
-     \)/
-    --v 
-   /r )
-  >r./
- / '  
-c_/   if
-```
 
-#### Process 
-This carrot came from my head. I wrote out the carrot on an index card first. On the right is the carrot, and then I made a grid to fit it. 
-![](carrot-drawing.jpeg)
-
-Then I input each individual character into its 2D location into Image.java, in the `getImage()` function. 
-
-(Citation Points: 1)
+Citation points: 1
