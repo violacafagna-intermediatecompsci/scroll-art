@@ -61,7 +61,7 @@ public class ScrollArtV1 {
         return row;
     }
 
-    static boolean isAreaEmpty(char[][] nextRows, int x) { //i added this isAreaEmpty
+    static boolean isAreaEmpty(char[][] nextRows, int x) { //VIOLAS MAJOR CODE DIFFERENCE I added this isAreaEmpty
         for (int y = 0; y < TURTLE_HEIGHT; y++) {
             for (int ix = x; ix < x + TURTLE_WIDTH; ix++) {
                 if (nextRows[y][ix] != ' ') {

@@ -39,4 +39,4 @@ Citation points: 1
 
 
 ## Ms. Feng Code Disclaimer
-I used most of Ms. Feng's code, but added my own (a method) code to make sure that my ASCII arts wouldn't overlap. I also made various edits throughout to make sure they fit with the dimensions with my ASCII.
+I used most of Ms. Feng's code, but the biggest change/edit of mine is that I added my own code to make sure that my ASCII arts wouldn't overlap. I also made various edits throughout to make sure they fit with the dimensions with my ASCII.
