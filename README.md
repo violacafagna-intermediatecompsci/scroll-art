@@ -6,6 +6,7 @@ I made my fish ascii art with the graphing paper Ms. Feng provided us. At first 
 My graph paper sketch can be seen in fish.jpeg
 
 This is what the fish looks like: 
+```
   0
    0
   /\/\
@@ -15,6 +16,7 @@ This is what the fish looks like:
   /  \
  /    \
 -------  VC
+```
 
 Citation points: 1
 
@@ -23,6 +25,7 @@ Citation points: 1
 After struggling to make a penguin ascii, I decided to make a turtle instead, so first, I sketched the turtle out on graph paper. Then, I redrew it on the graph paper so that it fit into the grid using specific characters.
 
 My graph paper sketch can be seen in turtle.jpeg
+```
     ___
    /@ @\
    \   /
@@ -32,7 +35,7 @@ My graph paper sketch can be seen in turtle.jpeg
    \\|//
     //\\
     -  -   VC
-
+```
 This is what my turtle looks like:
 
 Citation points: 1
