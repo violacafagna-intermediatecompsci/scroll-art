@@ -2,53 +2,53 @@ import java.util.Random;
 
 public class ScrollArtV1 {
     static final int WIDTH = getTerminalWidth() - 1;
-    static final int BUNNY_WIDTH = 8;
-    static final int BUNNY_HEIGHT = 9;
+    static final int FISH_WIDTH = 7;
+    static final int FISH_HEIGHT = 9;
+    static final int TURTLE_WIDTH = 11;
+    static final int TURTLE_HEIGHT = 9;
     static final Random rand = new Random();
 
     public static void main(String[] args) throws InterruptedException {
-        long startTime = System.currentTimeMillis();
-        int iterations = 0;
-        char[][] nextRows = new char[BUNNY_HEIGHT][WIDTH]; // store upcoming rows
+
+        char[][] nextRows = new char[34][WIDTH]; // store upcoming rows
+
         for (int i = 0; i < nextRows.length; i++) {
             nextRows[i] = emptyRow();
         }
 
-        char[][] image = getBunny(); // Preload bunny image
-        for (int y = 0; y < BUNNY_HEIGHT; y++) {
-            for (int x = 0; x < BUNNY_WIDTH; x++) {
-                System.out.print(image[y][x]);
-            }
-            System.out.println();
-        }
-        // while (true) {
-        //     // At each column on the top row, 1% chance to add a new image
-        //     for (int x = 0; x < WIDTH - BUNNY_WIDTH; x++) {
-        //         if (rand.nextDouble() < 0.01) {
-        //             loadNextRowsWithImage(nextRows, x);
-        //         }
+        // char[][] image = getFish(); // Preload bunny image
+        // for (int y = 0; y < FISH_HEIGHT; y++) {
+        //     for (int x = 0; x < FISH_WIDTH; x++) {
+        //         System.out.print(image[y][x]);
         //     }
-        //     // Print and remove the top row
-        //     System.out.println(new String(nextRows[0]));
-        //     // Shift all rows up
-        //     shiftRowsUp(nextRows);
-        //     Thread.sleep(40); // Delay in ms
-        //     long time = System.currentTimeMillis() - startTime;
-        //     iterations++;
-        //     System.err.println("average time per frame: " + (time / iterations) + " ms");
+        //     System.out.println();
         // }
+         while (true) {
+            // At each column on the top row, 1% chance to add a new image
+         for (int x = 0; x < WIDTH - TURTLE_WIDTH + 1; x++) {
+                if (rand.nextDouble() < 0.01 && isAreaEmpty(nextRows, x)) {
+                    loadNextRowsWithImage(nextRows, x);
+                    x = x + (TURTLE_WIDTH - 1); 
+                 }
+             }
+             // Print and remove the top row
+            System.out.println(new String(nextRows[0]));
+             // Shift all rows up
+             shiftRowsUp(nextRows);
+             Thread.sleep(40); // Delay in ms
+         }
     }
 
     private static void loadNextRowsWithImage(char[][] nextRows, int x) {
         char[][] img;
         if (rand.nextBoolean()) {
-            img = getBunny();
+            img = getFish();
         } else {
-            img = getCarrot();
+            img = getTurtle();
         }
-        for (int iy = 0; iy < BUNNY_HEIGHT; iy++) {
-            for (int ix = 0; ix < BUNNY_WIDTH; ix++) {
-                nextRows[iy][x + ix] = img[iy][ix];
+        for (int iy = 0; iy < img.length; iy++) {
+            for (int ix = 0; ix < img[iy].length; ix++) {
+                 nextRows[iy][x + ix] = img[iy][ix];
             }
         }
     }
@@ -68,12 +68,24 @@ public class ScrollArtV1 {
         return row;
     }
 
-    // rename your function here
-    static char[][] getBunny() {
-        char[][] img = new char[BUNNY_HEIGHT][BUNNY_WIDTH];
+    static boolean isAreaEmpty(char[][] nextRows, int x) {
+        for (int y = 0; y < TURTLE_HEIGHT; y++) {
+            for (int ix = x; ix < x + TURTLE_WIDTH; ix++) {
+                if (nextRows[y][ix] != ' ') {
+                    return false;
+                
+                }
+            }
+        }
+        return true; 
+    }
+
+    // this is my first ascii creation a fish!!
+    static char[][] getFish() {
+        char[][] img = new char[FISH_HEIGHT][FISH_WIDTH];
         // fill with empty space
-        for (int y = 0; y < BUNNY_HEIGHT; y++) {
-            for (int x = 0; x < BUNNY_WIDTH; x++) {
+        for (int y = 0; y < FISH_HEIGHT; y++) {
+            for (int x = 0; x < FISH_WIDTH; x++) {
                 img[y][x] = ' ';
             }
         }
@@ -85,7 +97,7 @@ public class ScrollArtV1 {
         img[2][4] = '/';
         img[2][5] = '\\';
         img[3][1] = '/';
-        img[3][3] = 'X';
+        img[3][3] = '@';
         img[3][6] = '\\';
         img[4][1] = '\\';
         img[4][6] = '/';
@@ -101,42 +113,75 @@ public class ScrollArtV1 {
         img[8][4] = '-';
         img[8][5] = '-';
         img[8][6] = '-';
-        img[8][7] = '-';
 
         return img;
     }
 
-    static char[][] getCarrot() {
-        char[][] img = new char[BUNNY_HEIGHT][BUNNY_WIDTH];
+    // this is my second ascii creation a turtle!!
+    static char[][] getTurtle() {
+        char[][] img = new char[TURTLE_HEIGHT][TURTLE_WIDTH];
         // fill with empty space
-        for (int y = 0; y < BUNNY_HEIGHT; y++) {
-            for (int x = 0; x < BUNNY_WIDTH; x++) {
+        for (int y = 0; y < TURTLE_HEIGHT; y++) {
+            for (int x = 0; x < TURTLE_WIDTH; x++) {
                 img[y][x] = ' ';
             }
         }
         // then fill individual characters
-        img[0][5] = '\\';
-        img[0][6] = ')';
-        img[0][7] = '/';
-        img[1][4] = '-';
-        img[1][5] = '-';
-        img[1][6] = 'v';
+        img[0][4] = '_';
+        img[0][5] = '_';
+        img[0][6] = '_';
+        img[1][3] = '/';
+        img[1][4] = '@';
+        img[1][6] = '@';
+        img[1][7] = '\\';
 
-        img[2][3] = '/';
-        img[2][4] = 'r';
-        img[2][6] = ')';
+        img[2][3] = '\\';
+        img[2][7] = '/';
+        img[3][1] = '_';
+        img[3][2] = '_';
+        img[3][3] = '/';
+        img[3][4] = '/';
+        img[3][5] = '|';
+        img[3][6] = '\\';
+        img[3][7] = '\\';
+        img[3][8] = '_';
 
-        img[3][2] = '>';
-        img[3][3] = 'r';
-        img[3][4] = '.';
-        img[3][5] = '/';
+        img[4][0] = '/';
+        img[4][2] = '/';
+        img[4][3] = '\\';
+        img[4][4] = '\\';
+        img[4][5] = '|';
+        img[4][6] = '/';
+        img[4][7] = '/';
+        img[4][8] = '\\';
+        img[4][10] = '\\';
 
-        img[4][1] = '/';
-        img[4][3] = '\'';
+        img[5][0] = '\\';
+        img[5][1] = '/';
+        img[5][2] = '\\';
+        img[5][3] = '/';
+        img[5][4] = '/';
+        img[5][5] = '|';
+        img[5][6] = '\\';
+        img[5][7] = '\\';
+        img[5][8] = '/';
+        img[5][9] = '\\';
+        img[5][10] = '/';
 
-        img[5][0] = 'c';
-        img[5][1] = '_';
-        img[5][2] = '/';
+        img[6][3] = '\\';
+        img[6][4] = '\\';
+        img[6][5] = '|';
+        img[6][6] = '/';
+        img[6][7] = '/';
+
+        img[7][4] = '/';
+        img[7][5] = '/';
+        img[7][6] = '\\';
+        img[7][7] = '\\';
+        img[8][4] = '-';
+        img[8][7] = '-';
+
+
 
         return img;
     }
