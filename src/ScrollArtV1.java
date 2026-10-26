@@ -16,13 +16,6 @@ public class ScrollArtV1 {
             nextRows[i] = emptyRow();
         }
 
-        // char[][] image = getFish(); // Preload bunny image
-        // for (int y = 0; y < FISH_HEIGHT; y++) {
-        //     for (int x = 0; x < FISH_WIDTH; x++) {
-        //         System.out.print(image[y][x]);
-        //     }
-        //     System.out.println();
-        // }
          while (true) {
             // At each column on the top row, 1% chance to add a new image
          for (int x = 0; x < WIDTH - TURTLE_WIDTH + 1; x++) {
